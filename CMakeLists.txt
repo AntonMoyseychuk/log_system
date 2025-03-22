@@ -31,7 +31,7 @@ add_library(log_system ${LOG_SYS_FILES})
 target_include_directories(log_system
     PUBLIC ${LOG_SYS_INCLUDE_DIR}
     
-    PRIVATE ${spdlog_INCLUDE_DIRS})
+    PRIVATE ${LOG_SYS_THIRDPARTY_SPDLOG_DIR}/include)
 
 target_link_directories(log_system PRIVATE ${spdlog_LIBRARY_DIRS})
 
