@@ -29,13 +29,9 @@ file(GLOB_RECURSE LOG_SYS_FILES CONFIGURE_DEPENDS
 add_library(log_system ${LOG_SYS_FILES})
 
 target_include_directories(log_system
-    PUBLIC ${LOG_SYS_INCLUDE_DIR}
-    
-    PRIVATE ${LOG_SYS_THIRDPARTY_SPDLOG_DIR}/include)
+    PUBLIC ${LOG_SYS_INCLUDE_DIR})
 
-target_link_directories(log_system PRIVATE ${spdlog_LIBRARY_DIRS})
-
-target_link_libraries(log_system PRIVATE spdlog)
+target_link_libraries(log_system PUBLIC spdlog::spdlog)
 
 target_compile_options(log_system PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/W4>
